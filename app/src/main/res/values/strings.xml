@@ -5,6 +5,8 @@
     <string name="covid_image">covid-image</string>
     <string name="corona">corona</string>
     <string name="stay_home">Stay at Home</string>
+    <string name="search">Search</string>
+    <string name="flag">Flag</string>
 
     <string name="deaths">Total Deaths</string>
     <string name="recovered">Total Recovered</string>

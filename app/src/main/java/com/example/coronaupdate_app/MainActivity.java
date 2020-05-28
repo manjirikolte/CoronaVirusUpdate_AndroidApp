@@ -3,6 +3,7 @@ package com.example.coronaupdate_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         selectCounty_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(MainActivity.this, AffectedCountryActivity.class));
             }
         });
 
