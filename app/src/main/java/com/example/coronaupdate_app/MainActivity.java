@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     PieChart pieChart;
     LinearLayout totalCases_linearLayout, moreDetails_linearLayout;
 
+    int positionCountry;
+    boolean globalStatus = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +72,41 @@ public class MainActivity extends AppCompatActivity {
         moreDetails_linearLayout = findViewById(R.id.moreDetails_linearLayout);
         selectCounty_btn = findViewById(R.id.selectCounty_btn);
 
+        try {
+            Intent intent = getIntent();
+            globalStatus = intent.getBooleanExtra("status",true);
+        }catch (Exception e){
+            Toast.makeText(this, "Global Status", Toast.LENGTH_SHORT).show();
+        }
+
+        if (globalStatus){
+            fetchData();
+        }
+        if (!globalStatus){
+            Intent intent = getIntent();
+            positionCountry = intent.getIntExtra("position",0);
+
+            totalCases_tv.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getCases());
+            totalDeaths_tv.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getDeaths());
+            activeCases_tv.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getActiveCases());
+            recoverCases_tv.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getRecover());
+            criticalCases.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getCritical());
+
+            todayDeath.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getTodayDeaths());
+            todayCases.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getTodayCases());
+
+
+
+            totalCaseLoader.stop();
+            moreDetailsLoader.stop();
+            totalCaseLoader.setVisibility(View.GONE);
+            moreDetailsLoader.setVisibility(View.GONE);
+            totalCases_linearLayout.setVisibility(View.VISIBLE);
+            moreDetails_linearLayout.setVisibility(View.VISIBLE);
+            pieChartUpdate();
+        }
+
+
         selectCounty_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,8 +114,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //To fetch data into textViews
-        fetchData();
 
     }
 
@@ -103,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                     criticalCases.setText(jsonObject.getString("critical"));
                     totalTests.setText(jsonObject.getString("tests"));
 
-                   pieChartUpdate();
+                    pieChartUpdate();
 
                     totalCaseLoader.stop();
                     moreDetailsLoader.stop();

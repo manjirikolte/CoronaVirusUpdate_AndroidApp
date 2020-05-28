@@ -2,10 +2,15 @@ package com.example.coronaupdate_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -26,11 +31,14 @@ import java.util.List;
 public class AffectedCountryActivity extends AppCompatActivity {
 
     EditText edit_search;
+    TextView globalTextView;
     ListView listView_Countries;
     SimpleArcLoader loader_countries;
     countryAdapter myCountryAdapter;
     countryModel myCountryModel;
     public static List<countryModel> countryModelsList = new ArrayList<>();
+
+    Boolean globalStatus = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +49,66 @@ public class AffectedCountryActivity extends AppCompatActivity {
         edit_search = findViewById(R.id.edit_search);
         loader_countries = findViewById(R.id.loader_country);
 
+        /*
+         * Fetching data function
+         */
         fetchData();
+
+        // To search specific Country Corona Update
+        edit_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                myCountryAdapter.getFilter().filter(s);
+                myCountryAdapter.notifyDataSetChanged();
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+
+        /*
+         *  Back to the MainActivity with position of selected country
+         */
+        listView_Countries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                globalStatus = false;
+                Intent intent = new Intent(AffectedCountryActivity.this, MainActivity.class);
+                intent.putExtra("position",position);
+                intent.putExtra("status",globalStatus);
+                startActivity(intent);
+            }
+        });
+
+        /*
+         * To set global data
+         */
+        globalTextView = findViewById(R.id.global);
+        globalTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                globalStatus = true;
+                Intent intent = new Intent(AffectedCountryActivity.this, MainActivity.class);
+                intent.putExtra("status",globalStatus);
+                startActivity(intent);
+            }
+        });
+
     }
+
+    /**
+     *  Fetch Data Function declaration
+     */
     private void fetchData() {
+        loader_countries.start();
 
         String url = "https://disease.sh/v2/countries";
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 try {
                     JSONArray jsonArray = new JSONArray(response);
 
@@ -72,20 +131,16 @@ public class AffectedCountryActivity extends AppCompatActivity {
                         countryModelsList.add(myCountryModel);
                     }
 
-
                     myCountryAdapter = new countryAdapter(AffectedCountryActivity.this, countryModelsList);
                     listView_Countries.setAdapter(myCountryAdapter);
 
                     loader_countries.stop();
                     loader_countries.setVisibility(View.GONE);
 
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(AffectedCountryActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         }, new Response.ErrorListener() {
             @Override

@@ -21,31 +21,29 @@
         android:maxLines="1"
         android:singleLine="true" />
 
-
     <TextView
         android:id="@+id/global"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="@string/global_status" />
-
     <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listView_country"
-        android:layout_margin="10dp" />
-
     <com.leo.simplearcloader.SimpleArcLoader
         android:visibility="visible"
         android:id="@+id/loader_country"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:arc_style="simple_arc">
+        app:arc_style="simple_arc"
+        android:layout_gravity="center">
     </com.leo.simplearcloader.SimpleArcLoader>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView_country"
+        android:layout_margin="10dp"/>
+
 </LinearLayout>
