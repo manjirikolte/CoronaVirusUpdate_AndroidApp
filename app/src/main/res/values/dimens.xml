@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="textMargin">10dp</dimen>
+    <dimen name="textSize">18sp</dimen>
+    <dimen name="infoText">20sp</dimen>
+    <dimen name="extraBigText">36sp</dimen>
+    <dimen name="heading2Size">26sp</dimen>
 </resources>

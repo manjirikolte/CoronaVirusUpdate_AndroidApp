@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     TextView totalCases_tv, totalDeaths_tv, recoverCases_tv, activeCases_tv, todayCases, todayDeath,
-                criticalCases, totalTests;
+                criticalCases, totalTests, countryStatus_textView;
     Button selectCounty_btn;
     SimpleArcLoader totalCaseLoader, moreDetailsLoader;
     PieChart pieChart;
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         activeCases_tv = findViewById(R.id.activeCases_tv);
         moreDetailsLoader = findViewById(R.id.loader_moreDetails);
         totalCaseLoader = findViewById(R.id.loader_totalCases);
+        countryStatus_textView = findViewById(R.id.countryStatus_textView);
         pieChart = findViewById(R.id.pieChart);
         totalCases_linearLayout = findViewById(R.id.totalCases_linearLayout);
         moreDetails_linearLayout = findViewById(R.id.moreDetails_linearLayout);
@@ -94,8 +95,10 @@ public class MainActivity extends AppCompatActivity {
 
             todayDeath.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getTodayDeaths());
             todayCases.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getTodayCases());
+            totalTests.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getTest());
 
-
+            selectCounty_btn.setText(AffectedCountryActivity.countryModelsList.get(positionCountry).getCountry());
+            countryStatus_textView.setText(R.string.graph_status);
 
             totalCaseLoader.stop();
             moreDetailsLoader.stop();

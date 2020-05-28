@@ -7,6 +7,7 @@
     <string name="stay_home">Stay at Home</string>
     <string name="search">Search</string>
     <string name="flag">Flag</string>
+    <string name="graph_status">Graph Status</string>
 
     <string name="deaths">Total Deaths</string>
     <string name="recovered">Total Recovered</string>
@@ -14,7 +15,7 @@
     <string name="critical">Critical Cases</string>
     <string name="today_deaths">Today Deaths</string>
     <string name="today_cases">Today Cases</string>
-    <string name="total_test">Active Cases</string>
+    <string name="total_test">Total Tests</string>
     <string name="global_status">Global Status</string>
     <string name="more_details">More Details</string>
     <string name="death">Deaths</string>

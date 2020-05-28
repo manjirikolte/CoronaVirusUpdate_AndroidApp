@@ -2,9 +2,9 @@ package com.example.coronaupdate_app;
 
 public class countryModel {
     private String flag, country, cases, todayCases, deaths, todayDeaths, recover,
-            activeCases, critical;
+            activeCases, critical, test;
 
-    public countryModel(String flag, String country, String cases, String todayCases, String deaths, String todayDeaths, String recover, String activeCases, String critical) {
+    public countryModel(String flag, String country, String cases, String todayCases, String deaths, String todayDeaths, String recover, String activeCases, String critical, String test) {
         this.flag = flag;
         this.country = country;
         this.cases = cases;
@@ -14,7 +14,7 @@ public class countryModel {
         this.recover = recover;
         this.activeCases = activeCases;
         this.critical = critical;
-
+        this.test = test;
     }
 
     public String getFlag() {
@@ -53,4 +53,7 @@ public class countryModel {
         return critical;
     }
 
+    public String getTest() {
+        return test;
+    }
 }

@@ -123,11 +123,12 @@ public class AffectedCountryActivity extends AppCompatActivity {
                         String recovered = jsonObject.getString("recovered");
                         String active = jsonObject.getString("active");
                         String critical = jsonObject.getString("critical");
+                        String tests = jsonObject.getString("tests");
 
                         JSONObject object = jsonObject.getJSONObject("countryInfo");
                         String flagUrl = object.getString("flag");
 
-                        myCountryModel = new countryModel(flagUrl,countryName, cases, todayCases, deaths, todayDeaths, recovered, active, critical);
+                        myCountryModel = new countryModel(flagUrl,countryName, cases, todayCases, deaths, todayDeaths, recovered, active, critical, tests);
                         countryModelsList.add(myCountryModel);
                     }
 
