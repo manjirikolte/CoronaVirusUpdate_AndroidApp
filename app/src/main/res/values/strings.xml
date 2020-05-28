@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">CoronaUpdate_App</string>
+
+    <string name="covid_19">Get to know About Covid-19</string>
+    <string name="covid_image">covid-image</string>
+    <string name="corona">corona</string>
+    <string name="stay_home">Stay at Home</string>
+
+    <string name="deaths">Total Deaths</string>
+    <string name="recovered">Total Recovered</string>
+    <string name="active">Active Cases</string>
+    <string name="critical">Critical Cases</string>
+    <string name="today_deaths">Today Deaths</string>
+    <string name="today_cases">Today Cases</string>
+    <string name="total_test">Active Cases</string>
+    <string name="global_status">Global Status</string>
+    <string name="more_details">More Details</string>
+    <string name="death">Deaths</string>
+    <string name="tactive">Active</string>
+    <string name="select_country">Select Country</string>
+    <string name="total_cases">Total Cases</string>
+    <string name="recover">Recover</string>
+
+
+</resources>
