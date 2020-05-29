@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -105,7 +106,7 @@ public class AffectedCountryActivity extends AppCompatActivity {
 
         String url = "https://disease.sh/v2/countries";
 
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.GET, url.trim(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -140,13 +141,14 @@ public class AffectedCountryActivity extends AppCompatActivity {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(AffectedCountryActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AffectedCountryActivity.this, "Check Internet Connection", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(AffectedCountryActivity.this, "Check Internet Connection", Toast.LENGTH_SHORT).show();
+                Log.e("ErrorMessageAffected",error.getMessage());
+                Toast.makeText(AffectedCountryActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
             }
         });
 

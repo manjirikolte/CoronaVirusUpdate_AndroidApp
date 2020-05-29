@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         totalCaseLoader.start();
         moreDetailsLoader.start();
 
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.GET, url.trim(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -159,7 +160,8 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                Log.e("ErrorMessage",error.getMessage());
+                Toast.makeText(MainActivity.this,"Something went wrong", Toast.LENGTH_LONG).show();
             }
         });
 

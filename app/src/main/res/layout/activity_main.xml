@@ -84,14 +84,15 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="20dp">
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:weightSum="2"
+                    android:layout_margin="20dp">
 
                     <org.eazegraph.lib.charts.PieChart
                         android:id="@+id/pieChart"
@@ -262,7 +263,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="20dp">
 
@@ -275,107 +276,121 @@
                     app:arc_style="simple_arc">
                 </com.leo.simplearcloader.SimpleArcLoader>
 
-                <LinearLayout
-                    android:id="@+id/moreDetails_linearLayout"
+
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="@dimen/textMargin"
-                    android:visibility="visible">
+                    android:layout_height="match_parent">
 
                     <LinearLayout
+                        android:id="@+id/moreDetails_linearLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/today_cases"
-                            android:padding="@dimen/textMargin"
-                            android:textSize="@dimen/textSize"/>
-                        <TextView
-                            android:id="@+id/todayCases"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textSize="@dimen/textSize"
-                            android:padding="@dimen/textMargin"
-                            android:textColor="@color/colorOrange"
-                            android:gravity="end"/>
-                    </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/textMargin"
+                        android:visibility="visible" >
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
-                        <TextView
-                            android:layout_width="0dp"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/today_deaths"
-                            android:textSize="@dimen/textSize"
-                            android:padding="@dimen/textMargin" />
-                        <TextView
-                            android:id="@+id/todayDeath"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textSize="@dimen/textSize"
-                            android:padding="@dimen/textMargin"
-                            android:textColor="@color/colorOrange"
-                            android:gravity="end"/>
-                    </LinearLayout>
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/critical"
-                            android:textSize="@dimen/textSize"
-                            android:padding="@dimen/textMargin"/>
-                        <TextView
-                            android:id="@+id/criticalCases"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textSize="@dimen/textSize"
-                            android:padding="@dimen/textMargin"
-                            android:textColor="@color/colorOrange"
-                            android:gravity="end"/>
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:padding="@dimen/textMargin"
+                                android:text="@string/today_cases"
+                                android:textSize="@dimen/textSize" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/total_test"
-                            android:textSize="@dimen/textSize"
-                            android:padding="@dimen/textMargin"/>
-                        <TextView
-                            android:id="@+id/totalTest"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textSize="@dimen/textSize"
-                            android:padding="@dimen/textMargin"
-                            android:textColor="@color/colorOrange"
-                            android:gravity="end"/>
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/todayCases"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:padding="@dimen/textMargin"
+                                android:textColor="@color/colorOrange"
+                                android:textSize="@dimen/textSize" />
+                        </LinearLayout>
 
-                </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:padding="@dimen/textMargin"
+                                android:text="@string/today_deaths"
+                                android:textSize="@dimen/textSize" />
+
+                            <TextView
+                                android:id="@+id/todayDeath"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:padding="@dimen/textMargin"
+                                android:textColor="@color/colorOrange"
+                                android:textSize="@dimen/textSize" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:padding="@dimen/textMargin"
+                                android:text="@string/critical"
+                                android:textSize="@dimen/textSize" />
+
+                            <TextView
+                                android:id="@+id/criticalCases"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:padding="@dimen/textMargin"
+                                android:textColor="@color/colorOrange"
+                                android:textSize="@dimen/textSize" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:padding="@dimen/textMargin"
+                                android:text="@string/total_test"
+                                android:textSize="@dimen/textSize" />
+
+                            <TextView
+                                android:id="@+id/totalTest"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:padding="@dimen/textMargin"
+                                android:textColor="@color/colorOrange"
+                                android:textSize="@dimen/textSize" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+
 
             </androidx.cardview.widget.CardView>
 
