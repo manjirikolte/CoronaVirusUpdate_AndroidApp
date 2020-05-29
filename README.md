@@ -21,3 +21,11 @@ App requires the following permissions:
 - [glide](https://github.com/bumptech/glide) - image loading framework for Android
 - [Volley](https://developer.android.com/training/volley) - Volley is an HTTP library that makes networking for Android apps easier and most importantly, faster. 
 - [CardView]() 
+
+## Screenshots
+ <img src="https://github.com/manjirikolte/CoronaVirusUpdate_AndroidApp/blob/master/Screenshots/Screenshot_1.jpg" width="270" height="500"> | <img src="https://github.com/manjirikolte/CoronaVirusUpdate_AndroidApp/blob/master/Screenshots/Screenshot_2.jpg" width="270" height="500"> | <img src="https://github.com/manjirikolte/CoronaVirusUpdate_AndroidApp/blob/master/Screenshots/Screenshot_3.jpg" width="270" height="500">
+  <br><br>
+ <img src="https://github.com/manjirikolte/CoronaVirusUpdate_AndroidApp/blob/master/Screenshots/Screenshot_4.jpg" width="270" height="500"> | <img src="https://github.com/manjirikolte/CoronaVirusUpdate_AndroidApp/blob/master/Screenshots/Screenshot_5.jpg" width="270" height="500">
+
+## License
+License under the <a href="https://github.com/manjirikolte/CoronaVirusUpdate_AndroidApp/blob/master/LICENSE.txt" >MIT License</a>
